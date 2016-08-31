@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=9" >
+    <title>Document</title>
+    <style>
+    .flash {
+        width: 900px;
+        margin: 10px auto;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .flash ul {
+        width: 300%;
+        height: 100%;
+        position: relative;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .flash ul li {
+        width: 900px;
+        float: left;
+        background: green;
+        height: 100%;
+        position: relative;
+        list-style-type: none;
+    }
+    
+    .flash ul li img {
+        width: 900px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class='flash'>
+        <ul id='flash_1'>
+            <li><img src='img/1.jpg' /></li>
+            <li><img src='img/2.jpg' /></li>
+            <li><img src='img/3.jpg' /></li>
+        </ul>
+    </div>
+    <div class='flash'>
+        <ul id="flash_2">
+            <li><img src='img/2.jpg' /></li>
+            <li><img src='img/1.jpg' /></li>
+            <li><img src='img/3.jpg' /></li>
+        </ul>
+    </div>
+    <div class='flash'>
+        <ul id="flash_3">
+            <li><img src='img/3.jpg' /></li>
+            <li><img src='img/2.jpg' /></li>
+            <li><img src='img/1.jpg' /></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src='js/yoha-animation.js'></script>
+    <script type="text/javascript">
+    function flash1Anim() {
+        var nowIndex = 0;
+        var next = function() {
+            setTimeout(function() {
+                if (nowIndex == 2) {
+                    Yoha.animate(flash_1, {
+                        marginLeft: '0px'
+                    }, 500).done(function() {
+                        nowIndex = 0;
+                        next();
+                    });
+                } else {
+                    Yoha.animate(flash_1, {
+                        marginLeft: -900 * (nowIndex + 1) + 'px'
+                    }, 500).done(function() {
+                        nowIndex++;
+                        next();
+                    });
+                }
+            }, 1000);
+
+        }
+        next();
+    }
+    flash1Anim();
+
+    function flash2Anim() {
+        var nowIndex = 0;
+        var next = function() {
+            setTimeout(function() {
+                if (nowIndex == 2) {
+                    Yoha.animate(flash_2, {
+                        left: '0%'
+                    }, 500).done(function() {
+                        nowIndex = 0;
+                        next();
+                    });
+                } else {
+                    Yoha.animate(flash_2, {
+                        left: -100 * (nowIndex + 1) + '%'
+                    }, 500).done(function() {
+                        nowIndex++;
+                        next();
+                    });
+                }
+            }, 1000);
+
+        }
+        next();
+    }
+    flash2Anim();
+
+    function flash3Anim() {
+        var nowIndex = 0;
+        var next = function() {
+            setTimeout(function() {
+                if (nowIndex == 2) {
+                    Yoha.animate(flash_3, {
+                        left: '0px'
+                    }, 800).done(function() {
+                        nowIndex = 0;
+                        next();
+                    });
+                } else {
+                    Yoha.animate(flash_3, {
+                        left: -900 * (nowIndex + 1) + 'px'
+                    }, 800).done(function() {
+                        nowIndex++;
+                        next();
+                    });
+                }
+            }, 1500);
+
+        }
+        next();
+    }
+    flash3Anim();
+    </script>
+</body>
+
+</html>
