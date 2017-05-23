@@ -10,7 +10,7 @@ Description:
           duration: 动画持续时长，毫秒单位, 如 1000
           callback: 动画结束的回调函数，可用于做连续动画。
       API：
-		  Yoha.aniamte(element,targetStyle,duration).done(callback);
+		  Yoha.animate(element,targetStyle,duration).done(callback);
 		  Yoha.show(element, duration)
 		  Yoha.hide(element, duration)
 		  Yoha.slideDown(element, duration)
